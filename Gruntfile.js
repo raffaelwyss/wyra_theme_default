@@ -21,6 +21,8 @@ module.exports = function (grunt) {
                     'node_modules/moment/moment.js',
                     'node_modules/moment/locale/de.js',
                     'node_modules/bootstrap-sass/assets/bootstrap.js',
+                    'node_modules/bootstrap-notify/bootstrap-notify.js',
+                    'node_modules/sweetalert2/dist/sweetalert2.js',
 
                     'src/Themes/Default/JavaScript/dependencies.js',
                     'src/Themes/Default/JavaScript/Core/*.js',
