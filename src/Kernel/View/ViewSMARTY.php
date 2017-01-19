@@ -50,6 +50,8 @@ class ViewSMARTY extends View
     /** @var null|Smarty $smarty */
     private $smarty = null;
 
+    private $templatePath = '';
+
 
     public function __construct()
     {
@@ -66,23 +68,24 @@ class ViewSMARTY extends View
     public function show($data, $args = [], $echo = true)
     {
         $return = $data;
+        $themeFolder = Kernel::$config->get('theme.folder');
+        $themePath = Kernel::$config->get('rootPath').'/Themes/'.$themeFolder.'/src/Themes/'.$themeFolder.'/Template';
         if (isset($args['errortemplate'])) {
             $this->setVariables($args);
             $this->addContent(
-                Kernel::$config->get('rootPath'). '/Themes/default/template/'.$args['errortemplate'],
+                $themePath.'/'.$args['errortemplate'],
                 $data,
                 $args
             );
-
             $this->smarty->assign('footer', '');
-            $this->smarty->display(Kernel::$config->get('rootPath').'/Themes/default/template/markup.tpl');
+            $this->smarty->display($themePath.'/markup.tpl');
         } elseif ($echo) {
             $this->setVariables($args);
             $this->addMetanavigation();
             $this->addSideBar();
             $this->addContent($args['template'], $data, $args);
             $this->addFooter();
-            $this->smarty->display(Kernel::$config->get('rootPath').'/Themes/default/template/markup.tpl');
+            $this->smarty->display($themePath.'/markup.tpl');
         }
         return $return;
     }
@@ -131,7 +134,7 @@ class ViewSMARTY extends View
     {
         $usedTime = microtime(true) - Kernel::$startTime;
         $this->smarty->assign('usedTime', number_format($usedTime, 4));
-        $this->smarty->assign('footer', $this->smarty->fetch(Kernel::$config->get('rootPath').'/Themes/default/template/footer.tpl'));
+        $this->smarty->assign('footer', $this->smarty->fetch($this->templatePath.'/footer.tpl'));
 
     }
 
@@ -148,7 +151,7 @@ class ViewSMARTY extends View
         if (isset($args['errortemplate'])) {
             return $template;
         } else {
-            return Kernel::$config->get('rootPath').'/Plugin/'.$args['Plugin'].'/Template/'.$template;
+            return Kernel::$config->get('rootPath').'/Plugins/'.$args['Plugin'].'/src/Plugins/'.$args['Plugin'].'/Template/'.$template;
         }
 
     }
@@ -159,11 +162,14 @@ class ViewSMARTY extends View
     private function setUpSmarty()
     {
         // Setzen der Template-Einstellungen
-        $path = Kernel::$config->get('rootPath')."/Kernel/View/Smarty";
+        $rootPath = Kernel::$config->get('rootPath');
+        $themeFolder = Kernel::$config->get('theme.folder');
+        $path = $rootPath."/Kernel/View/Smarty";
         $this->smarty->setTemplateDir($path . '/templates/');
         $this->smarty->setCompileDir($path . '/templates_c/');
         $this->smarty->setConfigDir($path . '/configs/');
         $this->smarty->setCacheDir($path . '/cache/');
+        $this->templatePath = $rootPath.'/Themes/'.$themeFolder.'/src/Themes/'.$themeFolder.'/Template';
 
         // Allgemeines setzen
         $this->smarty->caching = Smarty::CACHING_OFF;

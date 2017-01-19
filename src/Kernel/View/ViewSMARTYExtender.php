@@ -67,7 +67,9 @@ class ViewSMARTYExtender
     public function registerPlugins($smarty, $args = array())
     {
         $this->arguments = $args;
-        $this->templatePath = Kernel::$config->get('rootPath').'/Kernel/View/Smarty/templates';
+        $rootPath = Kernel::$config->get('rootPath');
+        $themeFolder = Kernel::$config->get('theme.folder');
+        $this->templatePath = $rootPath.'/Themes/'.$themeFolder.'/src/Kernel/View/Smarty/templates';
         $this->smarty = $smarty;
         $smarty->registerPlugin('function', '_', [$this, 'underline']);
         $smarty->registerPlugin('function', "input", [$this, 'input']);

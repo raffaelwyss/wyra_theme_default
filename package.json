@@ -1,0 +1,36 @@
+{
+  "name": "wyra_theme_default",
+  "version": "0.0.1",
+  "description": "Default Theme for Wyra",
+  "authors": [
+    {
+      "name": "Raffael Wyss",
+      "email": "raffael.wyss@gmail.com",
+      "homepage": "http://wyssinet.ch",
+      "role": "Developer"
+    }
+  ],
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raffaelwyss/wyra.git"
+  },
+  "dependencies": {
+    "grunt": "~1.0.0",
+    "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0"
+  },
+  "devDependencies": {
+    "angular": "~1.6.1",
+    "angular-animate": "~1.6.1",
+    "angular-i18n": "~1.6.1",
+    "angular-route": "~1.6.1",
+    "angular-sanitize": "~1.6.1",
+    "bootstrap-sass": "~3.3.7",
+    "jquery": "~3.1.1",
+    "jquery-ui-dist": "~1.12.1",
+    "moment": "~2.17.1"
+  }
+}

@@ -1,0 +1,11 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+# WyRa Folders
+src/Themes/*
+vendor/
+
+
