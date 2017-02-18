@@ -17,16 +17,20 @@ module.exports = function (grunt) {
                     'node_modules/angular-route/angular-route.js',
                     'node_modules/angular-sanitize/angular-sanitize.js',
                     'node_modules/angular-animate/angular-animate.js',
+                    'node_modules/angular-touch/angular-touch.js',
                     'node_modules/angular-ui-mask/dist/mask.js',
                     'node_modules/moment/moment.js',
                     'node_modules/moment/locale/de.js',
                     'node_modules/bootstrap-sass/assets/bootstrap.js',
                     'node_modules/bootstrap-notify/bootstrap-notify.js',
                     'node_modules/sweetalert2/dist/sweetalert2.js',
+                    'node_modules/bootstrap-sidebar/dist/js/sidebar.js',
+                    'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
 
                     'src/Themes/Default/JavaScript/dependencies.js',
                     'src/Themes/Default/JavaScript/Core/*.js',
-                    'src/Themes/Default/JavaScript/Form/*.js'
+                    'src/Themes/Default/JavaScript/Form/*.js',
+                    'src/Themes/Default/JavaScript/Menu/*.js'
 
                 ],
                 dest: '../../../web/dist/Theme/Default/app.js'

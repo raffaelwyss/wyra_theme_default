@@ -111,7 +111,7 @@ class ViewSMARTY extends View
         if (!Kernel::$config->get('installed')) {
             $this->smarty->assign('sidebar', '');
         } else {
-            $this->smarty->assign('sidebar', $this->smarty->fetch(Kernel::$config->get('rootPath').'/Themes/default/template/sidebar.tpl'));
+            $this->smarty->assign('sidebar', $this->smarty->fetch($this->templatePath.'/sidebar.tpl'));
         }
     }
 
@@ -123,7 +123,7 @@ class ViewSMARTY extends View
         if (!Kernel::$config->get('installed')) {
             $this->smarty->assign('metanavigation', '');
         } else {
-            $this->smarty->assign('metanavigation', $this->smarty->fetch(Kernel::$config->get('rootPath').'/Themes/default/template/metanavigation.tpl'));
+            $this->smarty->assign('metanavigation', $this->smarty->fetch($this->templatePath.'/metanavigation.tpl'));
         }
     }
 
